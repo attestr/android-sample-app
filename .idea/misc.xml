@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/bg_gradient.xml" value="0.17222222222222222" />
+        <entry key="app/src/main/res/drawable/edit_text_round_corner.xml" value="0.26145833333333335" />
+        <entry key="app/src/main/res/drawable/ic_baseline_copyright_24.xml" value="0.26145833333333335" />
         <entry key="app/src/main/res/drawable/splash_backgroud.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22962962962962963" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.23646578140960164" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.22962962962962963" />
       </map>
     </option>

@@ -1,8 +1,6 @@
 package com.example.attestrtestapp;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -16,8 +14,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.attestr.flowx.AttestrFlowx;
-import com.attestr.flowx.listener.AttestrFlowXListener;
 import com.example.attestrtestapp.databinding.ActivityMainBinding;
 
 import org.json.JSONObject;
@@ -25,22 +21,19 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, AttestrFlowXListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "main_activity";
     private ActivityMainBinding mainBinding;
     private EditText handshakeIdEditText, clientKeyEditText;
     private Button initiateSessionButton;
     private final String handShakeError = "Enter handshake id";
+    private final String clientKeyError = "Enter client key";
     private final String LOCAL_ENGLISH = "en";
     private final String LOCAL_HINDI = "hi";
-    private AttestrFlowx attestrFlowx;
-    private Spinner retrySpinner;
+    private Spinner retrySpinner, localeSpinner;
     private boolean isRetry;
-    private ProgressBar handshakeIdProgressBar;
-    public static final String flow = "FX01d8esduzkq7m0ege";
-    public static final String tag = "OX01d8esnxfkq6bfio2";
-    private HashMap<Object, Object> handshakeClass = new HashMap<>();
+    private String selectedLocale;
 
 
     @Override
@@ -52,21 +45,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         clientKeyEditText = mainBinding.clientKeyEditText;
         initiateSessionButton = mainBinding.initiateSessionButton;
         retrySpinner = mainBinding.retrySpinner;
-        handshakeIdProgressBar = mainBinding.handshakeIdProgressBar;
-        handshakeIdProgressBar.setVisibility(View.INVISIBLE);
+        localeSpinner = mainBinding.localeSpinner;
         initiateSessionButton.setOnClickListener(this);
-        attestrFlowx = new AttestrFlowx();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> retrySpinnerAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, getResources()
                 .getStringArray(R.array.retry_array));
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> localSpinnerAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, getResources()
+                .getStringArray(R.array.locale_array));
+        retrySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         retrySpinner.setPrompt("Select Retry");
-        retrySpinner.setAdapter(adapter);
+        retrySpinner.setAdapter(retrySpinnerAdapter);
         retrySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String retry = parent.getItemAtPosition(position).toString();
+                Log.d(TAG, "onRetrySelected: "+retry);
                 if ("True".equals(retry)) {
                     isRetry = true;
                 } else if ("False".equals(retry)) {
@@ -80,11 +75,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        handshakeClass.put("flow", flow);
-        handshakeClass.put("tag", tag);
-        handshakeClass.put("snapshot", JSONObject.NULL);
+        localSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        localeSpinner.setPrompt("Select Locale");
+        localeSpinner.setAdapter(localSpinnerAdapter);
+        localeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String locale = parent.getItemAtPosition(position).toString();
+                Log.d(TAG, "onLocaleSelected: "+locale);
+                if ("English".equals(locale)) {
+                    selectedLocale = LOCAL_ENGLISH;
+                } else if ("Hindi".equals(locale)) {
+                    selectedLocale = LOCAL_HINDI;
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                isRetry = false;
+            }
+        });
 
-        Log.d(TAG, "Request: "+handshakeClass.toString());
+        // TODO Add Attestr SDK code
 
     }
 
@@ -94,36 +105,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String handShakeID = handshakeIdEditText.getText().toString().trim();
             String clientKey = clientKeyEditText.getText().toString().trim();
 
-            boolean isHandShakeIDNull = TextUtils.isEmpty(handShakeID);
-            boolean isClientKeyNull = TextUtils.isEmpty(clientKey);
+            if (!TextUtils.isEmpty(handShakeID) && !TextUtils.isEmpty(clientKey)) {
+                // TODO
+            }
 
-            if (!isHandShakeIDNull && !isClientKeyNull) {
-                attestrFlowx.init(clientKey, handShakeID, this);
-                attestrFlowx.launch(
-                        LOCAL_ENGLISH,
-                        isRetry,
-                        null);
-            } else {
+            if (TextUtils.isEmpty(handShakeID) && TextUtils.isEmpty(clientKey)) {
+                Log.d(TAG, "Hanshake ID & Client Key Null");
+                handshakeIdEditText.setError(handShakeError);
+                clientKeyEditText.setError(clientKeyError);
+            }
+            if (TextUtils.isEmpty(handShakeID)){
+                Log.d(TAG, "Hanshake ID Null");
                 handshakeIdEditText.setError(handShakeError);
             }
+
+            if (TextUtils.isEmpty(clientKey)){
+                Log.d(TAG, "Client Key Null");
+                clientKeyEditText.setError(clientKeyError);
+            }
         }
-    }
-
-
-    @Override
-    public void onFlowXComplete(Map<String, Object> data) {
-        Toast.makeText(MainActivity.this, "Flow completed successfully", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onFlowXSkip(Map<String, Object> data) {
-        Toast.makeText(MainActivity.this, "Flow skipped", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onFlowXError(Map<String, Object> data) {
-        String errorMessage = (String) data.get("message");
-        Toast.makeText(MainActivity.this, "Error : "+errorMessage, Toast.LENGTH_SHORT).show();
     }
 
 
