@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AttestrApp</string>
+    <string name="attestr_flowx">Attestr FlowX</string>
+    <string name="enter_handshake_id">Enter Handshake ID</string>
+    <string name="enter_client_key">Enter client key</string>
+    <string name="initiate_session">Initiate Session</string>
+    <string name="client_key">5db59740efc834368364804179aaa4c6</string>
+    <string name="user_variables">User Variables</string>
+    <string name="get_handshake_id">Get Handshake ID</string>
+    <string-array name="retry_array">
+        <item>True</item>
+        <item>False</item>
+    </string-array>
+</resources>
