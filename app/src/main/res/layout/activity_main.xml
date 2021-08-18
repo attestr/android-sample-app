@@ -40,7 +40,7 @@
             android:textColor="@color/black"
             android:textSize="20sp" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/client_key_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,8 +95,8 @@
         android:id="@+id/attestr_logo_image_view"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
         android:layout_above="@+id/copyright_layout"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
         android:src="@drawable/logo" />
 
