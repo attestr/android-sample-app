@@ -3,6 +3,9 @@
 *.aar
 *.ap_
 *.aab
+gradlew.bat
+gradlew
+gradle/**
 
 # Files for the ART/Dalvik VM
 *.dex

@@ -1,12 +1,15 @@
 package com.example.attestrtestapp;
 
-import static java.lang.Thread.sleep;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+/**
+ * Copyright (c) 2021 Pegadroid IQ Solutions Pvt. Ltd.
+ * @Author Gaurav Naresh Pandit
+ **/
 
 public class StartActivity extends AppCompatActivity {
 

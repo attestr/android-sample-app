@@ -20,6 +20,11 @@ import com.example.attestrtestapp.databinding.ActivityMainBinding;
 import java.util.ArrayList;
 import java.util.Map;
 
+/**
+ * Copyright (c) 2021 Pegadroid IQ Solutions Pvt. Ltd.
+ * @Author Gaurav Naresh Pandit
+ **/
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AttestrFlowXListener {
 
     private static final String TAG = "main_activity";
@@ -29,13 +34,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button initiateSessionButton;
     private final String handShakeError = "Enter handshake id";
     private final String clientKeyError = "Enter client key";
-    private final String LOCAL_ENGLISH = "en";
-    private final String LOCAL_HINDI = "hi";
     private Spinner retrySpinner, localeSpinner;
     private boolean isRetry;
     private String selectedLocale;
     private AttestrFlowx attestrFlowx;
     private ArrayList<String> clientKeySuggestions = new ArrayList<>();
+    private String[] languages = new String[]{"en", "hi"};
+    private boolean[] retryMode = new boolean[]{true, false};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,13 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         retrySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String retry = parent.getItemAtPosition(position).toString();
-                Log.d(TAG, "onRetrySelected: "+retry);
-                if ("True".equals(retry)) {
-                    isRetry = true;
-                } else if ("False".equals(retry)) {
-                    isRetry = false;
-                }
+                isRetry = retryMode[position];
             }
 
             @Override
@@ -85,22 +84,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         localeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String locale = parent.getItemAtPosition(position).toString();
-                Log.d(TAG, "onLocaleSelected: "+locale);
-                if ("English".equals(locale)) {
-                    selectedLocale = LOCAL_ENGLISH;
-                } else if ("Hindi".equals(locale)) {
-                    selectedLocale = LOCAL_HINDI;
-                }
+                selectedLocale = languages[position];
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                isRetry = false;
+                selectedLocale = languages[0];
             }
         });
 
         clientKeyAutoComplete.setAdapter(autoCompleteAdapter);
-        // TODO Add Attestr SDK code
         attestrFlowx = new AttestrFlowx();
     }
 
