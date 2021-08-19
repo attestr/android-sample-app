@@ -1,0 +1,18 @@
+
+/**
+ * Copyright (c) 2021 Pegadroid IQ Solutions Pvt. Ltd.
+ * @Author Gaurav Naresh Pandit
+ **/
+
+nexusPublishing {
+    packageGroup = rootProject.ext["PUBLISH_GROUP_ID"]
+    repositories {
+        sonatype {
+            stagingProfileId = rootProject.ext["sonatypeStagingProfileId"]
+            username = rootProject.ext["ossrhUsername"]
+            password = rootProject.ext["ossrhPassword"]
+            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
+            snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
+        }
+    }
+}

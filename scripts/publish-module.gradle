@@ -1,0 +1,59 @@
+
+/**
+ * Copyright (c) 2021 Pegadroid IQ Solutions Pvt. Ltd.
+ * @Author Gaurav Naresh Pandit
+ **/
+
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+                // You can then customize attributes of the publication as shown below.
+                groupId rootProject.ext["PUBLISH_GROUP_ID"]
+                artifactId rootProject.ext["PUBLISH_ARTIFACT_ID"]
+                version rootProject.ext["PUBLISH_VERSION"]
+                pom {
+                    name = rootProject.ext["PUBLISH_ARTIFACT_ID"]
+                    description = 'Attestr official Android SDK for eKYC flows'
+                    url = 'https://github.com/attestr/android-sample-app'
+                    licenses {
+                        license {
+                            name = 'MIT License'
+                            url = 'https://github.com/attestr/android-sample-app/blob/master/LICENSE'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id =  rootProject.ext["DEVELOPER_ID"]
+                            name =  rootProject.ext["DEVELOPER_NAME"]
+                            email =  rootProject.ext["DEVELOPER_NAME"]
+                        }
+                        // Add all other devs here...
+                    }
+                    // Version control info - if you're using GitHub, follow the
+                    // format as seen here
+                    scm {
+                        connection = 'scm:git:github.com/attestr/android-sample-app.git'
+                        developerConnection = 'scm:git:ssh://github.com/attestr/android-sample-app.git'
+                        url = 'https://github.com/attestr/android-sample-app/tree/master'
+                    }
+                }
+            }
+        }
+    }
+}
+
+signing {
+    useInMemoryPgpKeys(
+            rootProject.ext["signing.keyId"],
+            rootProject.ext["signing.key"],
+            rootProject.ext["signing.password"],
+    )
+    sign publishing.publications
+}
