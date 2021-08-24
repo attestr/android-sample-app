@@ -87,7 +87,7 @@ public class ExampleActivity implements AttestrFlowXEventListener {
 Built for Android API 21+ (Lollipop onwards)
  
 ## License
-attestr-js-sdk is distributed under MIT license. Read more in the [LICENSE](LICENSE) file.
+attestr-android-sdk is distributed under MIT license. Read more in the [LICENSE](LICENSE) file.
 
 ## Contact Us
 Write to us at [contact@attestr.com](mailto:contact@attestr.com)
