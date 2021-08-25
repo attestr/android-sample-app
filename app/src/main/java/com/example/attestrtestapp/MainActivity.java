@@ -16,8 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.attestr.flowx.AttestrFlowx;
 import com.attestr.flowx.listener.AttestrFlowXListener;
 import com.example.attestrtestapp.databinding.ActivityMainBinding;
-
-import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -30,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = "main_activity";
     private ActivityMainBinding mainBinding;
     private EditText handshakeIdEditText;
-    private AutoCompleteTextView clientKeyAutoComplete;
+    private EditText clientKeyEditText;
     private Button initiateSessionButton;
     private final String handShakeError = "Enter handshake id";
     private final String clientKeyError = "Enter client key";
@@ -38,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean isRetry;
     private String selectedLocale;
     private AttestrFlowx attestrFlowx;
-    private ArrayList<String> clientKeySuggestions = new ArrayList<>();
     private String[] languages = new String[]{"en", "hi"};
     private boolean[] retryMode = new boolean[]{true, false};
 
@@ -48,21 +45,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
         handshakeIdEditText = mainBinding.handshakeIdEditText;
-        clientKeyAutoComplete = mainBinding.clientKeyEditText;
+        clientKeyEditText = mainBinding.clientKeyEditText;
         initiateSessionButton = mainBinding.initiateSessionButton;
         retrySpinner = mainBinding.retrySpinner;
         localeSpinner = mainBinding.localeSpinner;
         initiateSessionButton.setOnClickListener(this);
 
-
         ArrayAdapter<String> retrySpinnerAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, getResources()
+                R.layout.spinner_items, getResources()
                 .getStringArray(R.array.retry_array));
         ArrayAdapter<String> localSpinnerAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, getResources()
+                R.layout.spinner_items, getResources()
                 .getStringArray(R.array.locale_array));
-        ArrayAdapter<String> autoCompleteAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, clientKeySuggestions);
         retrySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         retrySpinner.setPrompt("Select Retry");
         retrySpinner.setAdapter(retrySpinnerAdapter);
@@ -91,8 +85,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 selectedLocale = languages[0];
             }
         });
-
-        clientKeyAutoComplete.setAdapter(autoCompleteAdapter);
         attestrFlowx = new AttestrFlowx();
     }
 
@@ -100,13 +92,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v == initiateSessionButton) {
             String handShakeID = handshakeIdEditText.getText().toString().trim();
-            String clientKey = clientKeyAutoComplete.getText().toString().trim();
-
+            String clientKey = clientKeyEditText.getText().toString().trim();
            try {
                if (!TextUtils.isEmpty(handShakeID) && !TextUtils.isEmpty(clientKey)) {
-                   if (!clientKeySuggestions.contains(clientKey)){
-                       clientKeySuggestions.add(clientKey);
-                   }
                    attestrFlowx.init(clientKey, handShakeID, this);
                    attestrFlowx.launch(
                            selectedLocale,
@@ -120,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (TextUtils.isEmpty(handShakeID) && TextUtils.isEmpty(clientKey)) {
                 Log.d(TAG, "Hanshake ID & Client Key Null");
                 handshakeIdEditText.setError(handShakeError);
-                clientKeyAutoComplete.setError(clientKeyError);
+                clientKeyEditText.setError(clientKeyError);
             }
             if (TextUtils.isEmpty(handShakeID)){
                 Log.d(TAG, "Hanshake ID Null");
@@ -129,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             if (TextUtils.isEmpty(clientKey)){
                 Log.d(TAG, "Client Key Null");
-                clientKeyAutoComplete.setError(clientKeyError);
+                clientKeyEditText.setError(clientKeyError);
             }
         }
     }
@@ -150,4 +138,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String errorMessage = (String) map.get("message");
         Toast.makeText(MainActivity.this, "Error : "+errorMessage, Toast.LENGTH_SHORT).show();
     }
+
+
 }

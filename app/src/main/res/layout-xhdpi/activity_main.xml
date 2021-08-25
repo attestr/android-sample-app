@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="80dp"
         android:layout_marginBottom="20dp"
         android:orientation="vertical">
 
@@ -22,42 +22,41 @@
             android:id="@+id/attestr_flowx_sample_app"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="40dp"
             android:text="@string/attestr_flowx"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="22sp" />
+            android:textSize="30sp" />
 
         <EditText
             android:id="@+id/handshake_id_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="15dp"
             android:hint="@string/enter_handshake_id"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="text"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="26sp" />
 
-        <AutoCompleteTextView
+        <EditText
             android:id="@+id/client_key_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="30dp"
             android:hint="@string/enter_client_key"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="text"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="26sp" />
 
         <Spinner
             android:id="@+id/retry_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="10dp"
             android:minHeight="48dp"
             android:popupBackground="@android:color/white"
             android:scrollbars="none"
@@ -68,8 +67,7 @@
             android:id="@+id/locale_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="40dp"
             android:popupBackground="@android:color/white"
             android:scrollbars="none"
             android:minHeight="48dp"
@@ -79,25 +77,24 @@
         <Button
             android:id="@+id/initiate_session_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_height="65dp"
             android:backgroundTint="#044bf4"
             android:text="@string/initiate_session"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="24sp" />
 
     </LinearLayout>
 
 
     <ImageView
         android:id="@+id/attestr_logo_image_view"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:layout_above="@+id/copyright_layout"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="80dp"
         android:src="@drawable/logo" />
 
     <LinearLayout
@@ -106,13 +103,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="60dp"
         android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/ic_baseline_copyright_24" />
 
         <TextView
@@ -122,7 +119,7 @@
             android:text="@string/attestr_com"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="26sp" />
 
     </LinearLayout>
 

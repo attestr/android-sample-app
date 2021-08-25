@@ -6,7 +6,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.0"
+        classpath 'com.android.tools.build:gradle:7.0.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -30,7 +30,7 @@ ext["ossrhPassword"] = System.getenv('OSSRH_PASSWORD')
 ext["sonatypeStagingProfileId"] = System.getenv('SONATYPE_STAGING_PROFILE_ID')
 
 ext["PUBLISH_GROUP_ID"] = 'com.attestr'
-ext["PUBLISH_VERSION"] = '0.2.0'
+ext["PUBLISH_VERSION"] = '0.2.1'
 ext["PUBLISH_ARTIFACT_ID"] = 'attestr-flowx'
 ext["DEVELOPER_ID"] = 'Attestr'
 ext["DEVELOPER_NAME"] = 'Attestr'
