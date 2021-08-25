@@ -7,4 +7,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "AttestrTestApp"
 include ':app'
-include ':attestr-flowx-android-sdk'
