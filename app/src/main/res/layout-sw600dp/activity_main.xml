@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:paddingStart="80dp"
+    android:paddingTop="40dp"
+    android:paddingEnd="80dp"
+    android:paddingBottom="20dp">
 
     <LinearLayout
         android:id="@+id/linear_layout"
@@ -68,9 +72,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
+            android:minHeight="48dp"
             android:popupBackground="@android:color/white"
             android:scrollbars="none"
-            android:minHeight="48dp"
             android:spinnerMode="dialog"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -83,6 +87,7 @@
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/white"
+            android:layout_marginBottom="15dp"
             android:textSize="24sp" />
 
     </LinearLayout>
