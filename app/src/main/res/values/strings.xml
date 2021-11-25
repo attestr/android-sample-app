@@ -5,7 +5,8 @@
     <string name="enter_handshake_id">Enter Handshake ID</string>
     <string name="enter_client_key">Enter client key</string>
     <string name="initiate_session">Initiate Session</string>
-    <string name="client_key">5db59740efc834368364804179aaa4c6</string>
+    <string name="staging_client_key">36cdadad20fcc04f96cf5759840ff832</string>
+    <string name="production_client_key">35c191c34c991b39e5248ebaf666a66b</string>
     <string name="user_variables">User Variables</string>
     <string name="get_handshake_id">Get Handshake ID</string>
     <string name="attestr_com">Attestr</string>

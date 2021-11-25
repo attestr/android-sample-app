@@ -14,7 +14,7 @@ Add this dependency to your project:
 <dependency>
  <groupId>com.attestr</groupId>
  <artifactId>attestr-flowx</artifactId>
- <version>0.2.1</version>
+ <version>0.3.0</version>
 </dependency>
 ```
 
@@ -23,7 +23,7 @@ Add this dependency to your project:
 Add this dependency to your project's build file:
 
 ```groovy
-implementation "com.attestr:attestr-flowx:0.2.1"
+implementation "com.attestr:attestr-flowx:0.3.0"
 ```
 
 ## Usage
@@ -81,6 +81,12 @@ public class ExampleActivity implements AttestrFlowXEventListener {
         Toast.makeText(MainActivity.this, "Error : " + errorMessage, Toast.LENGTH_SHORT).show();
     }
 }
+```
+
+Add the following permission to Android manifest file
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
 ```
 
 ## Version Compatibility

@@ -6,7 +6,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.1'
+        classpath 'com.android.tools.build:gradle:7.0.3'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -23,14 +23,13 @@ task clean(type: Delete) {
 
 ext["signing.keyId"] = System.getenv('SIGNING_KEY_ID')
 ext["signing.password"] = System.getenv('SIGNING_PASSWORD')
-//ext["signing.secretKeyRingFile"] = "/Users/gnpandit12/projects/Attestr/secring.gpg"
 ext["signing.key"] = System.getenv('SIGNING_KEY')
 ext["ossrhUsername"] = System.getenv('OSSRH_USERNAME')
 ext["ossrhPassword"] = System.getenv('OSSRH_PASSWORD')
 ext["sonatypeStagingProfileId"] = System.getenv('SONATYPE_STAGING_PROFILE_ID')
 
 ext["PUBLISH_GROUP_ID"] = 'com.attestr'
-ext["PUBLISH_VERSION"] = '0.2.1'
+ext["PUBLISH_VERSION"] = '0.3.0'
 ext["PUBLISH_ARTIFACT_ID"] = 'attestr-flowx'
 ext["DEVELOPER_ID"] = 'Attestr'
 ext["DEVELOPER_NAME"] = 'Attestr'
