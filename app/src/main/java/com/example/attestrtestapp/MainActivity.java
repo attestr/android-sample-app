@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AttestrFlowx attestrFlowx;
     private String[] languages = new String[]{"en", "hi"};
     private boolean[] retryMode = new boolean[]{true, false};
-    private Map<String, String> queryParameters;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,29 +87,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 selectedLocale = languages[0];
             }
         });
-        queryParameters = new HashMap<>();
-        queryParameters.put("pan_number", "DARPP6083E");
-        queryParameters.put("bank_account_number", "05011140069044");
-        queryParameters.put("bank_ifsc_code", "HDFC0000060");
-        queryParameters.put("upi_id", "8169672901@paytm");
-        queryParameters.put("gstin_number", "27AABCU9603R1ZN");
-        queryParameters.put("mca_company_registration", "L17110MH1973PLC019786");
-        queryParameters.put("mca_director_number", "00001620");
-        queryParameters.put("business_name", "Microsoft");
-        queryParameters.put("first_name", "Gaurav");
-        queryParameters.put("middle_name", "Naresh");
-        queryParameters.put("last_name", "Pandit");
-        queryParameters.put("date_of_birth", "12-10-1997");
-        queryParameters.put("uuid_number", "0364");
-        queryParameters.put("user_email", "pgaurav72@gmail.com");
-        queryParameters.put("user_mobile_no", "8169672901");
-        queryParameters.put("address", "Mangal Ragho Nagar, Tisgaon Road, Kalyan (E)");
-        queryParameters.put("staying_since_month", "Mar");
-        queryParameters.put("staying_since_year", "2021");
-        queryParameters.put("mobile_number", "8169672901");
-        queryParameters.put("person_name", "Gaurav Naresh Pandit");
-        queryParameters.put("father_name", "Naresh Murlidhar Pandit");
-        queryParameters.put("doc_type", "VOTER");
 
         attestrFlowx = new AttestrFlowx();
     }
