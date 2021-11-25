@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout-hdpi/activity_main.xml" value="0.835" />
         <entry key="app/src/main/res/layout-sw600dp/activity_main.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.34791666666666665" />
+        <entry key="app/src/main/res/layout/spinner_items.xml" value="1.3916666666666666" />
         <entry key="attestr-flowx-android-sdk/src/main/res/layout/digital_address_check_google_maps_fragment.xml" value="0.1371280724450194" />
       </map>
     </option>

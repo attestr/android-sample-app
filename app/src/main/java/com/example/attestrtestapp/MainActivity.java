@@ -16,8 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.attestr.flowx.AttestrFlowx;
 import com.attestr.flowx.listener.AttestrFlowXListener;
 import com.example.attestrtestapp.databinding.ActivityMainBinding;
-
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -87,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 selectedLocale = languages[0];
             }
         });
-
         attestrFlowx = new AttestrFlowx();
     }
 
@@ -102,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                    attestrFlowx.launch(
                            selectedLocale,
                            isRetry,
-                           queryParameters
+                           null
                    );
                }
            } catch (Exception e){
@@ -141,5 +138,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String errorMessage = (String) map.get("message");
         Toast.makeText(MainActivity.this, "Error : "+errorMessage, Toast.LENGTH_SHORT).show();
     }
-
 }
