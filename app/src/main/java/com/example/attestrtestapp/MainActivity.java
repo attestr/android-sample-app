@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == initiateSessionButton) {
+            String locale = selectedLocale;
             String handShakeID = handshakeIdEditText.getText().toString().trim();
             String clientKey = clientKeyEditText.getText().toString().trim();
            try {
