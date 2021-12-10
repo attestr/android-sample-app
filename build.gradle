@@ -29,7 +29,7 @@ ext["ossrhPassword"] = System.getenv('OSSRH_PASSWORD')
 ext["sonatypeStagingProfileId"] = System.getenv('SONATYPE_STAGING_PROFILE_ID')
 
 ext["PUBLISH_GROUP_ID"] = 'com.attestr'
-ext["PUBLISH_VERSION"] = '0.3.0'
+ext["PUBLISH_VERSION"] = '0.3.1'
 ext["PUBLISH_ARTIFACT_ID"] = 'attestr-flowx'
 ext["DEVELOPER_ID"] = 'Attestr'
 ext["DEVELOPER_NAME"] = 'Attestr'
