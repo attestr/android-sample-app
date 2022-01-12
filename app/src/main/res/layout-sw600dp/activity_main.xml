@@ -50,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:hint="@string/enter_client_key"
+            android:hintTextColor="#78909C"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="text"
@@ -91,16 +92,6 @@
             android:textSize="24sp" />
 
     </LinearLayout>
-
-
-    <ImageView
-        android:id="@+id/attestr_logo_image_view"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_above="@+id/copyright_layout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="80dp"
-        android:src="@drawable/logo" />
 
     <LinearLayout
         android:id="@+id/copyright_layout"
