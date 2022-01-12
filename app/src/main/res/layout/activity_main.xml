@@ -34,9 +34,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:hint="@string/enter_handshake_id"
+            android:hintTextColor="#757575"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="text"
+            android:minHeight="48dp"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
@@ -46,9 +48,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:hint="@string/enter_client_key"
+            android:hintTextColor="#757575"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="text"
+            android:minHeight="48dp"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
