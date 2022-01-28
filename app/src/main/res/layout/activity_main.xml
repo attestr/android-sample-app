@@ -9,7 +9,7 @@
     android:paddingBottom="20dp"
     android:paddingTop="30dp"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context="com.attestr.attestrFlowx.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +34,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:hint="@string/enter_handshake_id"
-            android:hintTextColor="#757575"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="text"
@@ -48,7 +47,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:hint="@string/enter_client_key"
-            android:hintTextColor="#757575"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="text"
