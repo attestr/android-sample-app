@@ -1,4 +1,4 @@
-package com.example.attestrtestapp;
+package com.attestr.attestrFlowx;
 
 import android.content.Context;
 

@@ -1,4 +1,4 @@
-package com.example.attestrtestapp;
+package com.attestr.attestrFlowx;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,12 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.attestr.flowx.AttestrFlowx;
-import com.attestr.flowx.listener.AttestrFlowXListener;
-import com.example.attestrtestapp.databinding.ActivityMainBinding;
+import com.attestr.attestrFlowx.databinding.ActivityMainBinding;
 import java.util.Map;
 
 /**
