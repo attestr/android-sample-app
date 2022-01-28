@@ -50,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:hint="@string/enter_client_key"
+            android:hintTextColor="#78909C"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="text"
