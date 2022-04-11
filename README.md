@@ -14,7 +14,7 @@ Add this dependency to your project:
 <dependency>
  <groupId>com.attestr</groupId>
  <artifactId>attestr-flowx</artifactId>
- <version>0.4.2</version>
+ <version>0.5</version>
 </dependency>
 ```
 
@@ -23,7 +23,7 @@ Add this dependency to your project:
 Add this dependency to your project's build file:
 
 ```groovy
-implementation "com.attestr:attestr-flowx:0.4.2"
+implementation "com.attestr:attestr-flowx:0.5"
 ```
 
 ## Usage
