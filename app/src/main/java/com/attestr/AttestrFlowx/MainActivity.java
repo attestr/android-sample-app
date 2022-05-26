@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button initiateSessionButton;
     private final String handShakeError = "Enter handshake id";
     private final String clientKeyError = "Enter client key";
-    private Spinner retrySpinner, localeSpinner;
+    private Spinner retrySpinner;
     private boolean isRetry;
     private String selectedLocale;
     private AttestrFlowx attestrFlowx;
@@ -49,15 +49,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         clientKeyEditText = mainBinding.clientKeyEditText;
         initiateSessionButton = mainBinding.initiateSessionButton;
         retrySpinner = mainBinding.retrySpinner;
-        localeSpinner = mainBinding.localeSpinner;
         initiateSessionButton.setOnClickListener(this);
 
         ArrayAdapter<String> retrySpinnerAdapter = new ArrayAdapter<String>(this,
                 R.layout.spinner_items, getResources()
                 .getStringArray(R.array.retry_array));
-        ArrayAdapter<String> localSpinnerAdapter = new ArrayAdapter<String>(this,
-                R.layout.spinner_items, getResources()
-                .getStringArray(R.array.locale_array));
         retrySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         retrySpinner.setPrompt("Select Retry");
         retrySpinner.setAdapter(retrySpinnerAdapter);
@@ -73,39 +69,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        localSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        localeSpinner.setPrompt("Select Locale");
-        localeSpinner.setAdapter(localSpinnerAdapter);
-        localeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedLocale = languages[position];
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                selectedLocale = languages[0];
-            }
-        });
         attestrFlowx = new AttestrFlowx();
     }
 
     @Override
     public void onClick(View v) {
         if (v == initiateSessionButton) {
-            String locale = selectedLocale;
             String handShakeID = handshakeIdEditText.getText().toString().trim();
             String clientKey = clientKeyEditText.getText().toString().trim();
            try {
                if (!TextUtils.isEmpty(handShakeID) && !TextUtils.isEmpty(clientKey)) {
                    attestrFlowx.init(clientKey, handShakeID, this);
                    attestrFlowx.launch(
-                           selectedLocale,
+                           null,
                            isRetry,
                            null
                    );
                }
            } catch (Exception e){
-               Log.d(TAG, "onClick: "+e.toString());
+               Log.d(TAG, "onClick: "+ e);
            }
             if (TextUtils.isEmpty(handShakeID) && TextUtils.isEmpty(clientKey)) {
                 Log.d(TAG, "Hanshake ID & Client Key Null");
