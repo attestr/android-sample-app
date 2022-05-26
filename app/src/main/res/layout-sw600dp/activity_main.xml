@@ -67,17 +67,6 @@
             android:spinnerMode="dialog"
             tools:ignore="SpeakableTextPresentCheck" />
 
-        <Spinner
-            android:id="@+id/locale_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:minHeight="48dp"
-            android:popupBackground="@android:color/white"
-            android:scrollbars="none"
-            android:spinnerMode="dialog"
-            tools:ignore="SpeakableTextPresentCheck" />
-
         <Button
             android:id="@+id/initiate_session_button"
             android:layout_width="match_parent"
