@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         attestrFlowx = new AttestrFlowx();
+
     }
 
     @Override
